@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EB0D36371762841200BA9A3B /* GDataXMLNode.m in Sources */ = {isa = PBXBuildFile; fileRef = EB0D36361762841200BA9A3B /* GDataXMLNode.m */; };
+		EB0D363B1762856100BA9A3B /* GDataXMLElement-Extras.m in Sources */ = {isa = PBXBuildFile; fileRef = EB0D363A1762856100BA9A3B /* GDataXMLElement-Extras.m */; };
 		EB45C744175FFAF700D96721 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB45C743175FFAF700D96721 /* UIKit.framework */; };
 		EB45C746175FFAF700D96721 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB45C745175FFAF700D96721 /* Foundation.framework */; };
 		EB45C748175FFAF700D96721 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB45C747175FFAF700D96721 /* CoreGraphics.framework */; };
@@ -32,9 +34,23 @@
 		EB45C78D176003C700D96721 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB45C78C176003C700D96721 /* SystemConfiguration.framework */; };
 		EB45C78F176003D000D96721 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB45C78E176003D000D96721 /* MobileCoreServices.framework */; };
 		EB45C791176003DB00D96721 /* libz.1.2.5.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = EB45C790176003DB00D96721 /* libz.1.2.5.dylib */; };
+		EBCBAF2C1768F8C20052ADB8 /* NSDate+InternetDateTime.m in Sources */ = {isa = PBXBuildFile; fileRef = EBCBAF2B1768F8C20052ADB8 /* NSDate+InternetDateTime.m */; };
+		EBCBAF301768F9EA0052ADB8 /* NSArray+Extras.m in Sources */ = {isa = PBXBuildFile; fileRef = EBCBAF2F1768F9EA0052ADB8 /* NSArray+Extras.m */; };
+		EBCBAF381768FF210052ADB8 /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EBCBAF361768FF210052ADB8 /* WebViewController.m */; };
+		EBCBAF391768FF210052ADB8 /* WebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EBCBAF371768FF210052ADB8 /* WebViewController.xib */; };
+		EBCBAF3C176917930052ADB8 /* FeedSubscription.m in Sources */ = {isa = PBXBuildFile; fileRef = EBCBAF3B176917930052ADB8 /* FeedSubscription.m */; };
+		EBCBAF3F17691C080052ADB8 /* FeedItem.m in Sources */ = {isa = PBXBuildFile; fileRef = EBCBAF3E17691C080052ADB8 /* FeedItem.m */; };
+		EBCBAF4617691FAF0052ADB8 /* SubscriptionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EBCBAF4417691FAF0052ADB8 /* SubscriptionViewController.m */; };
+		EBCBAF4717691FAF0052ADB8 /* SubscriptionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EBCBAF4517691FAF0052ADB8 /* SubscriptionViewController.xib */; };
+		EBF1AE0717693215002D129F /* FeedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EBF1AE0517693215002D129F /* FeedViewController.m */; };
+		EBF1AE0817693215002D129F /* FeedViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EBF1AE0617693215002D129F /* FeedViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		EB0D36351762841200BA9A3B /* GDataXMLNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDataXMLNode.h; sourceTree = "<group>"; };
+		EB0D36361762841200BA9A3B /* GDataXMLNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GDataXMLNode.m; sourceTree = "<group>"; };
+		EB0D36391762856100BA9A3B /* GDataXMLElement-Extras.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GDataXMLElement-Extras.h"; sourceTree = "<group>"; };
+		EB0D363A1762856100BA9A3B /* GDataXMLElement-Extras.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "GDataXMLElement-Extras.m"; sourceTree = "<group>"; };
 		EB45C73F175FFAF700D96721 /* SimpleRSSReader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SimpleRSSReader.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB45C743175FFAF700D96721 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		EB45C745175FFAF700D96721 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -79,6 +95,23 @@
 		EB45C78C176003C700D96721 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		EB45C78E176003D000D96721 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		EB45C790176003DB00D96721 /* libz.1.2.5.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.2.5.dylib; path = usr/lib/libz.1.2.5.dylib; sourceTree = SDKROOT; };
+		EBCBAF2A1768F8C20052ADB8 /* NSDate+InternetDateTime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+InternetDateTime.h"; sourceTree = "<group>"; };
+		EBCBAF2B1768F8C20052ADB8 /* NSDate+InternetDateTime.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+InternetDateTime.m"; sourceTree = "<group>"; };
+		EBCBAF2E1768F9EA0052ADB8 /* NSArray+Extras.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+Extras.h"; sourceTree = "<group>"; };
+		EBCBAF2F1768F9EA0052ADB8 /* NSArray+Extras.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+Extras.m"; sourceTree = "<group>"; };
+		EBCBAF351768FF210052ADB8 /* WebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewController.h; sourceTree = "<group>"; };
+		EBCBAF361768FF210052ADB8 /* WebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewController.m; sourceTree = "<group>"; };
+		EBCBAF371768FF210052ADB8 /* WebViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WebViewController.xib; sourceTree = "<group>"; };
+		EBCBAF3A176917930052ADB8 /* FeedSubscription.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedSubscription.h; sourceTree = "<group>"; };
+		EBCBAF3B176917930052ADB8 /* FeedSubscription.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedSubscription.m; sourceTree = "<group>"; };
+		EBCBAF3D17691C080052ADB8 /* FeedItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedItem.h; sourceTree = "<group>"; };
+		EBCBAF3E17691C080052ADB8 /* FeedItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedItem.m; sourceTree = "<group>"; };
+		EBCBAF4317691FAF0052ADB8 /* SubscriptionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubscriptionViewController.h; sourceTree = "<group>"; };
+		EBCBAF4417691FAF0052ADB8 /* SubscriptionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SubscriptionViewController.m; sourceTree = "<group>"; };
+		EBCBAF4517691FAF0052ADB8 /* SubscriptionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SubscriptionViewController.xib; sourceTree = "<group>"; };
+		EBF1AE0417693215002D129F /* FeedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedViewController.h; sourceTree = "<group>"; };
+		EBF1AE0517693215002D129F /* FeedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedViewController.m; sourceTree = "<group>"; };
+		EBF1AE0617693215002D129F /* FeedViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FeedViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,11 +132,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		EB0D36341762841200BA9A3B /* GDataXML */ = {
+			isa = PBXGroup;
+			children = (
+				EB0D36351762841200BA9A3B /* GDataXMLNode.h */,
+				EB0D36361762841200BA9A3B /* GDataXMLNode.m */,
+				EB0D36391762856100BA9A3B /* GDataXMLElement-Extras.h */,
+				EB0D363A1762856100BA9A3B /* GDataXMLElement-Extras.m */,
+			);
+			name = GDataXML;
+			path = SimpleRSSReader/GDataXML;
+			sourceTree = "<group>";
+		};
 		EB45C734175FFAF700D96721 = {
 			isa = PBXGroup;
 			children = (
 				EB45C749175FFAF700D96721 /* SimpleRSSReader */,
 				EB45C76A1760035300D96721 /* ASIHTTPRequest */,
+				EB0D36341762841200BA9A3B /* GDataXML */,
+				EBCBAF291768F8C20052ADB8 /* MWFeedParser */,
 				EB45C742175FFAF700D96721 /* Frameworks */,
 				EB45C740175FFAF700D96721 /* Products */,
 			);
@@ -142,6 +189,21 @@
 				EB45C74A175FFAF700D96721 /* Supporting Files */,
 				EB45C766175FFB1800D96721 /* RSSEntry.h */,
 				EB45C767175FFB1800D96721 /* RSSEntry.m */,
+				EBCBAF2E1768F9EA0052ADB8 /* NSArray+Extras.h */,
+				EBCBAF2F1768F9EA0052ADB8 /* NSArray+Extras.m */,
+				EBCBAF351768FF210052ADB8 /* WebViewController.h */,
+				EBCBAF361768FF210052ADB8 /* WebViewController.m */,
+				EBCBAF371768FF210052ADB8 /* WebViewController.xib */,
+				EBCBAF4317691FAF0052ADB8 /* SubscriptionViewController.h */,
+				EBCBAF4417691FAF0052ADB8 /* SubscriptionViewController.m */,
+				EBCBAF4517691FAF0052ADB8 /* SubscriptionViewController.xib */,
+				EBF1AE0417693215002D129F /* FeedViewController.h */,
+				EBF1AE0517693215002D129F /* FeedViewController.m */,
+				EBF1AE0617693215002D129F /* FeedViewController.xib */,
+				EBCBAF3A176917930052ADB8 /* FeedSubscription.h */,
+				EBCBAF3B176917930052ADB8 /* FeedSubscription.m */,
+				EBCBAF3D17691C080052ADB8 /* FeedItem.h */,
+				EBCBAF3E17691C080052ADB8 /* FeedItem.m */,
 			);
 			path = SimpleRSSReader;
 			sourceTree = "<group>";
@@ -188,6 +250,16 @@
 			);
 			name = ASIHTTPRequest;
 			path = SimpleRSSReader/ASIHTTPRequest;
+			sourceTree = "<group>";
+		};
+		EBCBAF291768F8C20052ADB8 /* MWFeedParser */ = {
+			isa = PBXGroup;
+			children = (
+				EBCBAF2A1768F8C20052ADB8 /* NSDate+InternetDateTime.h */,
+				EBCBAF2B1768F8C20052ADB8 /* NSDate+InternetDateTime.m */,
+			);
+			name = MWFeedParser;
+			path = SimpleRSSReader/MWFeedParser;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -246,6 +318,9 @@
 				EB45C758175FFAF700D96721 /* Default@2x.png in Resources */,
 				EB45C75A175FFAF700D96721 /* Default-568h@2x.png in Resources */,
 				EB45C760175FFAF700D96721 /* ViewController.xib in Resources */,
+				EBCBAF391768FF210052ADB8 /* WebViewController.xib in Resources */,
+				EBCBAF4717691FAF0052ADB8 /* SubscriptionViewController.xib in Resources */,
+				EBF1AE0817693215002D129F /* FeedViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -269,6 +344,15 @@
 				EB45C7851760035300D96721 /* ASIInputStream.m in Sources */,
 				EB45C7861760035300D96721 /* ASINetworkQueue.m in Sources */,
 				EB45C7891760039200D96721 /* Reachability.m in Sources */,
+				EB0D36371762841200BA9A3B /* GDataXMLNode.m in Sources */,
+				EB0D363B1762856100BA9A3B /* GDataXMLElement-Extras.m in Sources */,
+				EBCBAF2C1768F8C20052ADB8 /* NSDate+InternetDateTime.m in Sources */,
+				EBCBAF301768F9EA0052ADB8 /* NSArray+Extras.m in Sources */,
+				EBCBAF381768FF210052ADB8 /* WebViewController.m in Sources */,
+				EBCBAF3C176917930052ADB8 /* FeedSubscription.m in Sources */,
+				EBCBAF3F17691C080052ADB8 /* FeedItem.m in Sources */,
+				EBCBAF4617691FAF0052ADB8 /* SubscriptionViewController.m in Sources */,
+				EBF1AE0717693215002D129F /* FeedViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -346,7 +430,9 @@
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SimpleRSSReader/SimpleRSSReader-Prefix.pch";
+				HEADER_SEARCH_PATHS = /usr/include/libxml2;
 				INFOPLIST_FILE = "SimpleRSSReader/SimpleRSSReader-Info.plist";
+				OTHER_LDFLAGS = "-lxml2";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -357,7 +443,9 @@
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SimpleRSSReader/SimpleRSSReader-Prefix.pch";
+				HEADER_SEARCH_PATHS = /usr/include/libxml2;
 				INFOPLIST_FILE = "SimpleRSSReader/SimpleRSSReader-Info.plist";
+				OTHER_LDFLAGS = "-lxml2";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -382,6 +470,7 @@
 				EB45C765175FFAF700D96721 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

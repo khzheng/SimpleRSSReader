@@ -9,11 +9,15 @@
 #import <UIKit/UIKit.h>
 #import "ASIHTTPRequest.h"
 
+@class WebViewController;
+
 @interface ViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, ASIHTTPRequestDelegate> {
     NSMutableArray *allEntries;
     
     NSOperationQueue *queue;
     NSArray *feeds;
+    
+    WebViewController *webViewController;
     
     IBOutlet UITableView *table;
 }
@@ -21,5 +25,6 @@
 @property (nonatomic, retain) NSMutableArray *allEntries;
 @property (nonatomic, retain) NSOperationQueue *queue;
 @property (nonatomic, retain) NSArray *feeds;
+@property (nonatomic, retain) WebViewController *webViewController;
 
 @end
