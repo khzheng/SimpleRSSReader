@@ -8,8 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
+@class FeedViewController;
+
 @interface SubscriptionViewController : UIViewController <UITableViewDataSource, UITableViewDelegate> {
     NSMutableArray *subscriptions;
+    FeedViewController *feedViewController;
     
     IBOutlet UITableView *table;
 }

@@ -8,6 +8,7 @@
 
 #import "SubscriptionViewController.h"
 #import "FeedSubscription.h"
+#import "FeedViewController.h"
 
 @interface SubscriptionViewController ()
 
@@ -25,7 +26,10 @@
         
         subscriptions = [[NSMutableArray alloc] init];
         [subscriptions addObject:feed];
-    };
+        
+        feedViewController = [[FeedViewController alloc] initWithNibName:@"FeedViewController" bundle:nil];
+    }
+    
     return self;
 }
 
@@ -54,6 +58,9 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     FeedSubscription *feed = [subscriptions objectAtIndex:[indexPath row]];
     NSLog(@"%@", [feed description]);
+    
+    [feedViewController setFeed:feed];
+    [self.navigationController pushViewController:feedViewController animated:YES];
 }
 
 #pragma mark - UITableViewDataSource

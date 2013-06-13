@@ -47,7 +47,7 @@
 }
 
 - (NSString *)description {
-    NSString *description = [NSString stringWithFormat:@"\nFeed info {\n\ttitle: %@,\nlink: %@,\nsummary: %@", title, link, summary];
+    NSString *description = [NSString stringWithFormat:@"\nFeed info {\n\ttitle: %@,\n\tlink: %@,\n\tsummary: %@\n}", title, link, summary];
     return description;
 }
 

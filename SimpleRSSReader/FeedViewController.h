@@ -7,7 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ASIHTTPRequest.h"
 
-@interface FeedViewController : UIViewController
+@class FeedSubscription;
+
+@interface FeedViewController : UIViewController <ASIHTTPRequestDelegate> {
+    FeedSubscription *feed;
+    
+    NSMutableArray *feedItems;
+    NSOperationQueue *queue;
+}
+
+@property (nonatomic, retain) FeedSubscription *feed;
 
 @end
