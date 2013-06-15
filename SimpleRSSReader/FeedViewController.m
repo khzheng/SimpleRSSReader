@@ -10,6 +10,9 @@
 #import "FeedSubscription.h"
 #import "FeedItem.h"
 
+#import "GDataXMLNode.h"
+#import "GDataXMLElement-Extras.h"
+
 @interface FeedViewController ()
 
 @end
@@ -94,14 +97,91 @@
 - (void)requestFinished:(ASIHTTPRequest *)request {
     NSLog(@"requestFinished");
     
-    FeedItem *feedItem = [[[FeedItem alloc] initWithTitle:@"title" link:@"link" date:nil updated:nil summary:nil content:nil] autorelease];
-    [feedItems insertObject:feedItem atIndex:0];
-    
-    [table insertRowsAtIndexPaths:[NSArray arrayWithObject:[NSIndexPath indexPathForRow:0 inSection:0]] withRowAnimation:UITableViewRowAnimationRight];
+    [queue addOperationWithBlock:^{
+        NSError *error;
+        GDataXMLDocument *doc = [[GDataXMLDocument alloc] initWithData:[request responseData] options:0 error:&error];
+        
+        if (doc == nil) {
+            NSLog(@"Failed to parse %@", [request url]);
+        } else {
+            NSMutableArray *tempFeedItems = [NSMutableArray array];
+            [self parseFeed:doc.rootElement entries:tempFeedItems];
+            
+            [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+                for (FeedItem *feedItem in tempFeedItems) {
+                    int insertIndex = 0;
+                    [feedItems insertObject:feedItem atIndex:insertIndex];
+                    [table insertRowsAtIndexPaths:[NSArray arrayWithObject:[NSIndexPath indexPathForRow:0 inSection:0]] withRowAnimation:UITableViewRowAnimationRight];
+                }
+            }];
+        }
+    }];
 }
 
 - (void)requestFailed:(ASIHTTPRequest *)request {
     NSLog(@"requestFailed: %@", [request error]);
+}
+
+#pragma mark - Parsing
+
+- (void)parseFeed:(GDataXMLElement *)rootElement entries:(NSMutableArray *)entries {
+    if ([rootElement.name compare:@"rss"] == NSOrderedSame) {
+        [self parseRss:rootElement entries:entries];
+    } else if ([rootElement.name compare:@"feed"] == NSOrderedSame) {
+        [self parseAtom:rootElement entries:entries];
+    } else {
+        NSLog(@"Unsupported root element: %@", rootElement.name);
+    }
+}
+
+- (void)parseRss:(GDataXMLElement *)rootElement entries:(NSMutableArray *)entries {
+    
+    NSArray *channels = [rootElement elementsForName:@"channel"];
+    for (GDataXMLElement *channel in channels) {
+        
+        NSString *blogTitle = [channel valueForChild:@"title"];
+        
+        NSArray *items = [channel elementsForName:@"item"];
+        for (GDataXMLElement *item in items) {
+            
+            NSString *articleTitle = [item valueForChild:@"title"];
+            NSString *articleUrl = [item valueForChild:@"link"];
+            NSString *articleDateString = [item valueForChild:@"pubDate"];
+            NSDate *articleDate = nil;
+            
+            FeedItem *feedItem = [[[FeedItem alloc] initWithTitle:articleTitle link:articleUrl date:articleDate updated:nil summary:nil content:nil] autorelease];
+            [entries addObject:feedItem];
+        }
+    }
+    
+}
+
+- (void)parseAtom:(GDataXMLElement *)rootElement entries:(NSMutableArray *)entries {
+    
+    NSString *blogTitle = [rootElement valueForChild:@"title"];
+    
+    NSArray *items = [rootElement elementsForName:@"entry"];
+    for (GDataXMLElement *item in items) {
+        
+        NSString *articleTitle = [item valueForChild:@"title"];
+        NSString *articleUrl = nil;
+        NSArray *links = [item elementsForName:@"link"];
+        for(GDataXMLElement *link in links) {
+            NSString *rel = [[link attributeForName:@"rel"] stringValue];
+            NSString *type = [[link attributeForName:@"type"] stringValue];
+            if ([rel compare:@"alternate"] == NSOrderedSame &&
+                [type compare:@"text/html"] == NSOrderedSame) {
+                articleUrl = [[link attributeForName:@"href"] stringValue];
+            }
+        }
+        
+        NSString *articleDateString = [item valueForChild:@"updated"];
+        NSDate *articleDate = nil;
+        
+        FeedItem *feedItem = [[[FeedItem alloc] initWithTitle:articleTitle link:articleUrl date:articleDate updated:nil summary:nil content:nil] autorelease];
+        [entries addObject:feedItem];
+    }      
+    
 }
 
 @end
