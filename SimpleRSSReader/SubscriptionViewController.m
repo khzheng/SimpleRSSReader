@@ -23,11 +23,11 @@
         // Custom initialization
         
         FeedSubscription *feed = [[[FeedSubscription alloc] initWithTitle:@"SlickDeals" link:@"http://feeds.feedburner.com/SlickdealsnetFP" summary:@""] autorelease];
+        FeedSubscription *anotherFeed = [[[FeedSubscription alloc] initWithTitle:@"FAIL" link:@"http://feeds.feedburner.com/failblog" summary:@""] autorelease];
         
         subscriptions = [[NSMutableArray alloc] init];
         [subscriptions addObject:feed];
-        
-        feedViewController = [[FeedViewController alloc] initWithNibName:@"FeedViewController" bundle:nil];
+        [subscriptions addObject:anotherFeed];
     }
     
     return self;
@@ -59,6 +59,7 @@
     FeedSubscription *feed = [subscriptions objectAtIndex:[indexPath row]];
     NSLog(@"%@", [feed description]);
     
+    FeedViewController *feedViewController = [[[FeedViewController alloc] initWithNibName:@"FeedViewController" bundle:nil] autorelease];
     [feedViewController setFeed:feed];
     [self.navigationController pushViewController:feedViewController animated:YES];
 }

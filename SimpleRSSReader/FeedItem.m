@@ -31,6 +31,30 @@
     return self;
 }
 
+- (id)initWithTitle:(NSString *)aTitle
+               link:(NSString *)aLink
+               date:(NSDate *)aDate
+            updated:(NSDate *)anUpdated
+            summary:(NSString *)aSummary
+            content:(NSString *)aContent {
+    self = [super init];
+    if (self) {
+        if (aTitle == nil) aTitle = @"";
+        if (aLink == nil) aLink = @"";
+        if (aSummary == nil) aSummary = @"";
+        if (aContent == nil) aContent = @"";
+        
+        title = [aTitle copy];
+        link = [aLink copy];
+        date = [aDate copy];
+        updated = [anUpdated copy];
+        summary = [aSummary copy];
+        content = [aContent copy];
+    }
+    
+    return self;
+}
+
 - (void)dealloc {
     [title release];
     [link release];

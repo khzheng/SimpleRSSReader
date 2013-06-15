@@ -11,11 +11,13 @@
 
 @class FeedSubscription;
 
-@interface FeedViewController : UIViewController <ASIHTTPRequestDelegate> {
+@interface FeedViewController : UIViewController <ASIHTTPRequestDelegate, UITableViewDelegate, UITableViewDataSource> {
     FeedSubscription *feed;
     
     NSMutableArray *feedItems;
     NSOperationQueue *queue;
+    
+    IBOutlet UITableView *table;
 }
 
 @property (nonatomic, retain) FeedSubscription *feed;

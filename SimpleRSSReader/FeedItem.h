@@ -24,4 +24,11 @@
 @property (nonatomic, copy) NSString *summary;
 @property (nonatomic, copy) NSString *content;
 
+- (id)initWithTitle:(NSString *)aTitle
+               link:(NSString *)aLink
+               date:(NSDate *)aDate
+            updated:(NSDate *)anUpdated
+            summary:(NSString *)aSummary
+            content:(NSString *)aContent;
+
 @end
