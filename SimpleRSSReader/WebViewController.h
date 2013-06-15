@@ -8,14 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
-@class RSSEntry;
+@class FeedItem;
 
 @interface WebViewController : UIViewController {
-    UIWebView *webView;
-    RSSEntry *entry;
+    IBOutlet UIWebView *webView;
+    FeedItem *feedItem;
 }
 
-@property (nonatomic, retain) IBOutlet UIWebView *webView;
-@property (nonatomic, retain) RSSEntry *entry;
+@property (nonatomic, retain) FeedItem *feedItem;
 
 @end

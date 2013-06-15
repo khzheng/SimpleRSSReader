@@ -7,6 +7,7 @@
 //
 
 #import "FeedViewController.h"
+#import "WebViewController.h"
 #import "FeedSubscription.h"
 #import "FeedItem.h"
 
@@ -92,6 +93,15 @@
     [[cell detailTextLabel] setText:dateString];
     
     return cell;
+}
+
+#pragma UITableViewDelegate
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    FeedItem *feedItem = [feedItems objectAtIndex:[indexPath row]];
+    WebViewController *webViewController = [[[WebViewController alloc] initWithNibName:@"WebViewController" bundle:nil] autorelease];
+    [webViewController setFeedItem:feedItem];
+    [[self navigationController] pushViewController:webViewController animated:YES];
 }
 
 #pragma mark - ASIHTTPRequestDelegate

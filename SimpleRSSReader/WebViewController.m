@@ -7,7 +7,7 @@
 //
 
 #import "WebViewController.h"
-#import "RSSEntry.h"
+#import "FeedItem.h"
 
 @interface WebViewController ()
 
@@ -15,14 +15,14 @@
 
 @implementation WebViewController
 
-@synthesize webView;
-@synthesize entry;
+@synthesize feedItem;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+        feedItem = nil;
     }
     return self;
 }
@@ -40,17 +40,13 @@
 }
 
 - (void)dealloc {
-    [entry release];
-    entry = nil;
-    
-    [webView release];
-    webView = nil;
+    [feedItem release];
     
     [super dealloc];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
-    NSURL *url = [NSURL URLWithString:[entry articleUrlString]];
+    NSURL *url = [NSURL URLWithString:[feedItem link]];
     [webView loadRequest:[NSURLRequest requestWithURL:url]];
 }
 
