@@ -12,6 +12,8 @@
 
 #import "GDataXMLNode.h"
 #import "GDataXMLElement-Extras.h"
+#import "NSDate+InternetDateTime.h"
+#import "NSArray+Extras.h"
 
 @interface FeedViewController ()
 
@@ -109,9 +111,13 @@
             
             [[NSOperationQueue mainQueue] addOperationWithBlock:^{
                 for (FeedItem *feedItem in tempFeedItems) {
-                    int insertIndex = 0;
+                    int insertIndex = [feedItems indexForInsertingObject:feedItem sortedUsingBlock:^(id a, id b) {
+                        FeedItem *feedItem1 = (FeedItem *)a;
+                        FeedItem *feedItem2 = (FeedItem *)b;
+                        return [[feedItem1 date] compare:[feedItem2 date]];
+                    }];
                     [feedItems insertObject:feedItem atIndex:insertIndex];
-                    [table insertRowsAtIndexPaths:[NSArray arrayWithObject:[NSIndexPath indexPathForRow:0 inSection:0]] withRowAnimation:UITableViewRowAnimationRight];
+                    [table insertRowsAtIndexPaths:[NSArray arrayWithObject:[NSIndexPath indexPathForRow:insertIndex inSection:0]] withRowAnimation:UITableViewRowAnimationRight];
                 }
             }];
         }
@@ -147,7 +153,7 @@
             NSString *articleTitle = [item valueForChild:@"title"];
             NSString *articleUrl = [item valueForChild:@"link"];
             NSString *articleDateString = [item valueForChild:@"pubDate"];
-            NSDate *articleDate = nil;
+            NSDate *articleDate = [NSDate dateFromInternetDateTimeString:articleDateString formatHint:DateFormatHintRFC822];
             
             FeedItem *feedItem = [[[FeedItem alloc] initWithTitle:articleTitle link:articleUrl date:articleDate updated:nil summary:nil content:nil] autorelease];
             [entries addObject:feedItem];
@@ -176,7 +182,7 @@
         }
         
         NSString *articleDateString = [item valueForChild:@"updated"];
-        NSDate *articleDate = nil;
+        NSDate *articleDate = [NSDate dateFromInternetDateTimeString:articleDateString formatHint:DateFormatHintRFC3339];
         
         FeedItem *feedItem = [[[FeedItem alloc] initWithTitle:articleTitle link:articleUrl date:articleDate updated:nil summary:nil content:nil] autorelease];
         [entries addObject:feedItem];
